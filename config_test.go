@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/RTradeLtd/Temporal/config"
+	"github.com/RTradeLtd/config"
 )
 
 func TestGenerateAndLoadConfig(t *testing.T) {
