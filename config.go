@@ -1,6 +1,7 @@
 package config
 
 import (
+	"bytes"
 	"encoding/json"
 	"io/ioutil"
 	"os"
@@ -27,5 +28,10 @@ func GenerateConfig(configPath string) error {
 	if err != nil {
 		return err
 	}
-	return ioutil.WriteFile(configPath, b, os.ModePerm)
+
+	var pretty bytes.Buffer
+	if err = json.Indent(&pretty, b, "", "\t"); err != nil {
+		return err
+	}
+	return ioutil.WriteFile(configPath, pretty.Bytes(), os.ModePerm)
 }
