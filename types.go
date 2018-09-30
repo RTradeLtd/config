@@ -8,37 +8,10 @@ type TemporalConfig struct {
 	IPFSCluster `json:"ipfs_cluster"`
 	MINIO       `json:"minio"`
 	RabbitMQ    `json:"rabbitmq"`
-	AWS         struct {
-		KeyID  string `json:"key_id"`
-		Secret string `json:"secret"`
-	} `json:"aws"`
-	Sendgrid struct {
-		APIKey       string `json:"api_key"`
-		EmailAddress string `json:"email_address"`
-		EmailName    string `json:"email_name"`
-	} `json:"sendgrid"`
-	Ethereum struct {
-		Account struct {
-			Address string `json:"address"`
-			KeyFile string `json:"key_file"`
-			KeyPass string `json:"key_pass"`
-		} `json:"account"`
-		Connection struct {
-			RPC struct {
-				IP   string `json:"ip"`
-				Port string `json:"port"`
-			} `json:"rpc"`
-			IPC struct {
-				Path string `json:"path"`
-			} `json:"ipc"`
-			INFURA struct {
-				URL string `json:"url"`
-			} `json:"infura"`
-		} `json:"connection"`
-		Contracts struct {
-			RTCAddress string `json:"rtc_address"`
-		} `json:"contracts"`
-	} `json:"ethereum"`
+	AWS         `json:"aws"`
+	Sendgrid    `json:"sendgrid"`
+	Ethereum    `json:"ethereum"`
+	Wallets     `json:"wallets"`
 }
 
 // API configures the Temporal API
@@ -98,4 +71,51 @@ type MINIO struct {
 // RabbitMQ configures Temporal's connection to a RabbitMQ instance
 type RabbitMQ struct {
 	URL string `json:"url"`
+}
+
+// AWS configures Temporal's connection to AWS
+type AWS struct {
+	KeyID  string `json:"key_id"`
+	Secret string `json:"secret"`
+}
+
+// Sendgrid configures Temporal's connection to Sendgrid
+type Sendgrid struct {
+	APIKey       string `json:"api_key"`
+	EmailAddress string `json:"email_address"`
+	EmailName    string `json:"email_name"`
+}
+
+// Ethereum configures Temporal's connection, and interaction with the Ethereum blockchain
+type Ethereum struct {
+	Account struct {
+		Address string `json:"address"`
+		KeyFile string `json:"key_file"`
+		KeyPass string `json:"key_pass"`
+	} `json:"account"`
+	Connection struct {
+		RPC struct {
+			IP   string `json:"ip"`
+			Port string `json:"port"`
+		} `json:"rpc"`
+		IPC struct {
+			Path string `json:"path"`
+		} `json:"ipc"`
+		INFURA struct {
+			URL string `json:"url"`
+		} `json:"infura"`
+	} `json:"connection"`
+	Contracts struct {
+		RTCAddress string `json:"rtc_address"`
+	} `json:"contracts"`
+}
+
+// Wallets are the addresses of RTrade Ltd's wallets
+type Wallets struct {
+	ETH  string `json:"eth"`
+	RTC  string `json:"rtc"`
+	XMR  string `json:"xmr"`
+	DASH string `json:"dash"`
+	BTC  string `json:"btc"`
+	LTC  string `json:"ltc"`
 }
