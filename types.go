@@ -2,16 +2,16 @@ package config
 
 // TemporalConfig defines Temporal configuration fields
 type TemporalConfig struct {
-	API         `json:"api"`
-	Database    `json:"database"`
-	IPFS        `json:"ipfs"`
-	IPFSCluster `json:"ipfs_cluster"`
-	MINIO       `json:"minio"`
-	RabbitMQ    `json:"rabbitmq"`
-	AWS         `json:"aws"`
-	Sendgrid    `json:"sendgrid"`
-	Ethereum    `json:"ethereum"`
-	Wallets     `json:"wallets"`
+	API         `json:"api,omitempty"`
+	Database    `json:"database,omitempty"`
+	IPFS        `json:"ipfs,omitempty"`
+	IPFSCluster `json:"ipfs_cluster,omitempty"`
+	MINIO       `json:"minio,omitempty"`
+	RabbitMQ    `json:"rabbitmq,omitempty"`
+	AWS         `json:"aws,omitempty"`
+	Sendgrid    `json:"sendgrid,omitempty"`
+	Ethereum    `json:"ethereum,omitempty"`
+	Wallets     `json:"wallets,omitempty"`
 }
 
 // API configures the Temporal API
