@@ -16,7 +16,6 @@ type TemporalConfig struct {
 
 // API configures the Temporal API
 type API struct {
-	AdminUser  string `json:"admin_user"`
 	Connection struct {
 		Certificates struct {
 			CertPath string `json:"cert_path"`
@@ -28,9 +27,16 @@ type API struct {
 		AuthKey       string `json:"auth_key"`
 		EncryptionKey string `json:"encryption_key"`
 	} `json:"sessions"`
-	RollbarToken         string `json:"rollbar_token"`
-	JwtKey               string `json:"jwt_key"`
-	SizeLimitInGigaBytes string `json:"size_limit_in_giga_bytes"`
+	JwtKey               string  `json:"jwt_key"`
+	SizeLimitInGigaBytes string  `json:"size_limit_in_giga_bytes"`
+	Payment              Payment `json:"payment"`
+}
+
+// Payment configures the GRPC Payment Server API
+type Payment struct {
+	Address  string `json:"address"`
+	Port     string `json:"port"`
+	Protocol string `json:"protocol"`
 }
 
 // Database configures Temporal's connection to a Postgres database

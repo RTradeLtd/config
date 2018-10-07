@@ -8,7 +8,7 @@ import (
 )
 
 func TestGenerateAndLoadConfig(t *testing.T) {
-	testconf := "./testconfig.json"
+	testconf := "./example.config.json"
 	defer os.Remove(testconf)
 	if err := config.GenerateConfig(testconf); err != nil {
 		t.Fatal(err)
