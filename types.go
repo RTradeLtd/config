@@ -112,7 +112,8 @@ type Ethereum struct {
 		} `json:"infura"`
 	} `json:"connection"`
 	Contracts struct {
-		RTCAddress string `json:"rtc_address"`
+		RTCAddress             string `json:"rtc_address"`
+		PaymentContractAddress string `json:"payment_contract_address"`
 	} `json:"contracts"`
 }
 
