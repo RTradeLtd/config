@@ -30,6 +30,7 @@ type API struct {
 	JwtKey               string  `json:"jwt_key"`
 	SizeLimitInGigaBytes string  `json:"size_limit_in_giga_bytes"`
 	Payment              Payment `json:"payment"`
+	LogFile              string  `json:"logfile"`
 }
 
 // Payment configures the GRPC Payment Server API
