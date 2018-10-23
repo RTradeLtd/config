@@ -139,4 +139,5 @@ type APIKeys struct {
 type Endpoints struct {
 	MoneroRPC string `json:"monero_rpc"`
 	LensGRPC  string `json:"lens_grpc"`
+	MongoDB   string `json:"mongodb"`
 }
