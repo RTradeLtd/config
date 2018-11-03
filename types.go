@@ -12,7 +12,7 @@ type TemporalConfig struct {
 	Sendgrid    `json:"sendgrid,omitempty"`
 	Ethereum    `json:"ethereum,omitempty"`
 	Wallets     `json:"wallets,omitempty"`
-	TNS         `json:"tsn,omitempty"`
+	TNS         `json:"tns,omitempty"`
 }
 
 // API configures the Temporal API
