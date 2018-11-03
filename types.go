@@ -13,6 +13,8 @@ type TemporalConfig struct {
 	Ethereum    `json:"ethereum,omitempty"`
 	Wallets     `json:"wallets,omitempty"`
 	TNS         `json:"tns,omitempty"`
+	APIKeys     `json:"api_keys,omitempty"`
+	Endpoints   `json:"endpoints,omitempty"`
 }
 
 // API configures the Temporal API
@@ -31,6 +33,7 @@ type API struct {
 	JwtKey               string  `json:"jwt_key"`
 	SizeLimitInGigaBytes string  `json:"size_limit_in_giga_bytes"`
 	Payment              Payment `json:"payment"`
+	LogFile              string  `json:"logfile"`
 }
 
 // Payment configures the GRPC Payment Server API
@@ -113,7 +116,8 @@ type Ethereum struct {
 		} `json:"infura"`
 	} `json:"connection"`
 	Contracts struct {
-		RTCAddress string `json:"rtc_address"`
+		RTCAddress             string `json:"rtc_address"`
+		PaymentContractAddress string `json:"payment_contract_address"`
 	} `json:"contracts"`
 }
 
@@ -127,9 +131,26 @@ type Wallets struct {
 	LTC  string `json:"ltc"`
 }
 
+
 // TNS configures our TNS manager
 type TNS struct {
 	ZoneName           string `json:"zone_name"`
 	ZoneManagerKeyName string `json:"zone_manager_key_name"`
 	ZoneKeyName        string `json:"zone_key_name"`
+}
+
+// APIKeys are the various API keys we use
+type APIKeys struct {
+	ChainRider string `json:"chain_rider"`
+}
+
+// Endpoints are various endpoints we connect to
+type Endpoints struct {
+	MoneroRPC string `json:"monero_rpc"`
+	LensGRPC  string `json:"lens_grpc"`
+	MongoDB   struct {
+		URL              string `json:"url"`
+		DB               string `json:"db"`
+		UploadCollection string `json:"uploads"`
+	} `json:"mongodb"`
 }
