@@ -153,6 +153,7 @@ type Endpoints struct {
 			CertPath string `json:"cert_path"`
 			KeyFile  string `json:"key_file"`
 		}
+		AuthKey string `json:"auth_key"`
 		LogFile string `json:"log_file"`
 	} `json:"lens"`
 	MongoDB struct {
