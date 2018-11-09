@@ -148,9 +148,12 @@ type APIKeys struct {
 type Endpoints struct {
 	MoneroRPC string `json:"monero_rpc"`
 	Lens      struct {
-		URL      string `json:"url"`
-		CertPath string `json:"cert_path"`
-		LogFile  string `json:"log_file"`
+		URL string `json:"url"`
+		TLS struct {
+			CertPath string `json:"cert_path"`
+			KeyFile  string `json:"key_file"`
+		}
+		LogFile string `json:"log_file"`
 	} `json:"lens"`
 	MongoDB struct {
 		URL              string `json:"url"`
