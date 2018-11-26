@@ -179,7 +179,7 @@ type Endpoints struct {
 		AuthKey          string `json:"auth_key"`
 		LogFile          string `json:"log_file"`
 		KeystorePassword string `json:"keystore_password"`
-	}
+	} `json:"krab"`
 }
 
 // Orchestrator defines options for the IPFS orchestrator
