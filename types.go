@@ -171,6 +171,15 @@ type Endpoints struct {
 		User string `json:"user"`
 		Pass string `json:"pass"`
 	} `json:"raven"`
+	Krab struct {
+		URL string `json:"url"`
+		TLS struct {
+			CertPath string `json:"cert_path"`
+			KeyFile  string `json:"key_file"`
+		}
+		AuthKey string `json:"auth_key"`
+		LogFile string `json:"log_file"`
+	}
 }
 
 // Orchestrator defines options for the IPFS orchestrator
