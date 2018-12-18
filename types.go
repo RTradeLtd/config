@@ -27,6 +27,11 @@ type API struct {
 			KeyPath  string `json:"key_path"`
 		}
 		ListenAddress string `json:"listen_address"`
+		// defines parameters for prometheus metric collector
+		Prometheus struct {
+			IP   string `json:"ip"`
+			Port string `json:"port"`
+		}
 		// define the maximum number of people allowed to connect to the API
 		Limit string `json:"limit"`
 	} `json:"connection"`
