@@ -38,6 +38,7 @@ type API struct {
 	Sessions struct {
 		AuthKey       string `json:"auth_key"`
 		EncryptionKey string `json:"encryption_key"`
+		CSRFSecret    string `json:"csrf_secret"`
 	} `json:"sessions"`
 	JwtKey               string  `json:"jwt_key"`
 	SizeLimitInGigaBytes string  `json:"size_limit_in_giga_bytes"`
