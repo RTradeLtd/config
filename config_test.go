@@ -17,3 +17,21 @@ func TestGenerateAndLoadConfig(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestGenerateConfigFailure(t *testing.T) {
+	testConf := "/root/toor/config.json"
+	if err := config.GenerateConfig(testConf); err == nil {
+		t.Fatal("error expected")
+	}
+}
+
+func TestLoadConfigFailure(t *testing.T) {
+	testFileExists := "./README.md"
+	if _, err := config.LoadConfig(testFileExists); err == nil {
+		t.Fatal("error expected")
+	}
+	testFileNotExists := "/root/toor/config.json"
+	if _, err := config.LoadConfig(testFileNotExists); err == nil {
+		t.Fatal("error expected")
+	}
+}
