@@ -87,7 +87,11 @@ type MINIO struct {
 
 // RabbitMQ configures Temporal's connection to a RabbitMQ instance
 type RabbitMQ struct {
-	URL string `json:"url"`
+	URL       string `json:"url"`
+	TLSConfig struct {
+		CertFile string `json:"cert_file"`
+		KeyFile  string `json:"key_file"`
+	} `json:"tls_config"`
 }
 
 // AWS configures Temporal's connection to AWS
@@ -186,4 +190,8 @@ type Orchestrator struct {
 		CertPath string `json:"cert"`
 		KeyPath  string `json:"key"`
 	} `json:"tls"`
+	Delegator struct {
+		Host string `json:"host"`
+		Port string `json:"port"`
+	} `json:"delegator"`
 }
