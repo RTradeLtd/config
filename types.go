@@ -14,7 +14,7 @@ type TemporalConfig struct {
 	Wallets     `json:"wallets,omitempty"`
 	APIKeys     `json:"api_keys,omitempty"`
 	Endpoints   `json:"endpoints,omitempty"`
-	Nexus       `json:"Nexus,omitempty"`
+	Nexus       `json:"nexus,omitempty"`
 	LogDir      string `json:"log_dir,omitempty"`
 }
 
