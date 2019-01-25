@@ -2,20 +2,20 @@ package config
 
 // TemporalConfig defines Temporal configuration fields
 type TemporalConfig struct {
-	API          `json:"api,omitempty"`
-	Database     `json:"database,omitempty"`
-	IPFS         `json:"ipfs,omitempty"`
-	IPFSCluster  `json:"ipfs_cluster,omitempty"`
-	MINIO        `json:"minio,omitempty"`
-	RabbitMQ     `json:"rabbitmq,omitempty"`
-	AWS          `json:"aws,omitempty"`
-	Sendgrid     `json:"sendgrid,omitempty"`
-	Ethereum     `json:"ethereum,omitempty"`
-	Wallets      `json:"wallets,omitempty"`
-	APIKeys      `json:"api_keys,omitempty"`
-	Endpoints    `json:"endpoints,omitempty"`
-	Orchestrator `json:"orchestrator,omitempty"`
-	LogDir       string `json:"log_dir,omitempty"`
+	API         `json:"api,omitempty"`
+	Database    `json:"database,omitempty"`
+	IPFS        `json:"ipfs,omitempty"`
+	IPFSCluster `json:"ipfs_cluster,omitempty"`
+	MINIO       `json:"minio,omitempty"`
+	RabbitMQ    `json:"rabbitmq,omitempty"`
+	AWS         `json:"aws,omitempty"`
+	Sendgrid    `json:"sendgrid,omitempty"`
+	Ethereum    `json:"ethereum,omitempty"`
+	Wallets     `json:"wallets,omitempty"`
+	APIKeys     `json:"api_keys,omitempty"`
+	Endpoints   `json:"endpoints,omitempty"`
+	Nexus       `json:"Nexus,omitempty"`
+	LogDir      string `json:"log_dir,omitempty"`
 }
 
 // API configures the Temporal API
@@ -181,8 +181,9 @@ type Endpoints struct {
 	} `json:"krab"`
 }
 
-// Orchestrator defines options for the IPFS orchestrator
-type Orchestrator struct {
+// Nexus defines options for the Nexus, our private network
+// management tool for IPFS.
+type Nexus struct {
 	Host string `json:"host"`
 	Port string `json:"port"`
 	Key  string `json:"key"`
@@ -191,7 +192,6 @@ type Orchestrator struct {
 		KeyPath  string `json:"key"`
 	} `json:"tls"`
 	Delegator struct {
-		Host string `json:"host"`
 		Port string `json:"port"`
 	} `json:"delegator"`
 }
