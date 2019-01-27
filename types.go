@@ -50,6 +50,7 @@ type Pay struct {
 		CertPath string `json:"cert"`
 		KeyPath  string `json:"key"`
 	} `json:"tls"`
+	AuthKey string `json:"auth_key"`
 }
 
 // Database configures Temporal's connection to a Postgres database
