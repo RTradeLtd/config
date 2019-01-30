@@ -3,18 +3,19 @@ package config
 // TemporalConfig defines Temporal configuration fields
 type TemporalConfig struct {
 	API         `json:"api,omitempty"`
-	Database    `json:"database,omitempty"`
-	IPFS        `json:"ipfs,omitempty"`
-	IPFSCluster `json:"ipfs_cluster,omitempty"`
-	MINIO       `json:"minio,omitempty"`
-	RabbitMQ    `json:"rabbitmq,omitempty"`
-	AWS         `json:"aws,omitempty"`
-	Sendgrid    `json:"sendgrid,omitempty"`
-	Ethereum    `json:"ethereum,omitempty"`
-	Wallets     `json:"wallets,omitempty"`
 	APIKeys     `json:"api_keys,omitempty"`
+	AWS         `json:"aws,omitempty"`
+	Database    `json:"database,omitempty"`
 	Endpoints   `json:"endpoints,omitempty"`
+	Ethereum    `json:"ethereum,omitempty"`
+	IPFSCluster `json:"ipfs_cluster,omitempty"`
+	IPFS        `json:"ipfs,omitempty"`
 	Nexus       `json:"nexus,omitempty"`
+	Pay         `json:"pay,omitempty"`
+	RabbitMQ    `json:"rabbitmq,omitempty"`
+	Sendgrid    `json:"sendgrid,omitempty"`
+	Stripe      `json:"stripe,omitempty"`
+	Wallets     `json:"wallets,omitempty"`
 	LogDir      string `json:"log_dir,omitempty"`
 }
 
@@ -38,15 +39,19 @@ type API struct {
 		Key   string `json:"key"`
 		Realm string `json:"realm"`
 	} `json:"jwt"`
-	SizeLimitInGigaBytes string  `json:"size_limit_in_giga_bytes"`
-	Payment              Payment `json:"payment"`
+	SizeLimitInGigaBytes string `json:"size_limit_in_giga_bytes"`
 }
 
-// Payment configures the GRPC Payment Server API
-type Payment struct {
+// Pay configures connection to our payment processor
+type Pay struct {
 	Address  string `json:"address"`
 	Port     string `json:"port"`
 	Protocol string `json:"protocol"`
+	TLS      struct {
+		CertPath string `json:"cert"`
+		KeyPath  string `json:"key"`
+	} `json:"tls"`
+	AuthKey string `json:"auth_key"`
 }
 
 // Database configures Temporal's connection to a Postgres database
@@ -73,16 +78,6 @@ type IPFSCluster struct {
 		Host string `json:"host"`
 		Port string `json:"port"`
 	} `json:"api_connection"`
-}
-
-// MINIO configures Temporal's connection to a Minio instance
-type MINIO struct {
-	AccessKey  string `json:"access_key"`
-	SecretKey  string `json:"secret_key"`
-	Connection struct {
-		IP   string `json:"ip"`
-		Port string `json:"port"`
-	} `json:"connection"`
 }
 
 // RabbitMQ configures Temporal's connection to a RabbitMQ instance
@@ -194,4 +189,10 @@ type Nexus struct {
 	Delegator struct {
 		Port string `json:"port"`
 	} `json:"delegator"`
+}
+
+// Stripe is used to configure our connection with stripe api
+type Stripe struct {
+	PublishableKey string `json:"publishable_key"`
+	SecretKey      string `json:"secret_key"`
 }
