@@ -6,11 +6,10 @@ type TemporalConfig struct {
 	APIKeys     `json:"api_keys,omitempty"`
 	AWS         `json:"aws,omitempty"`
 	Database    `json:"database,omitempty"`
-	Endpoints   `json:"endpoints,omitempty"`
+	Services    `json:"services,omitempty"`
 	Ethereum    `json:"ethereum,omitempty"`
 	IPFSCluster `json:"ipfs_cluster,omitempty"`
 	IPFS        `json:"ipfs,omitempty"`
-	Nexus       `json:"nexus,omitempty"`
 	Pay         `json:"pay,omitempty"`
 	RabbitMQ    `json:"rabbitmq,omitempty"`
 	Sendgrid    `json:"sendgrid,omitempty"`
@@ -143,17 +142,16 @@ type APIKeys struct {
 	ChainRider string `json:"chain_rider"`
 }
 
-// Endpoints are various endpoints we connect to
-type Endpoints struct {
+// Services are various endpoints we connect to
+type Services struct {
 	MoneroRPC string `json:"monero_rpc"`
 	Lens      struct {
 		URL string `json:"url"`
 		TLS struct {
 			CertPath string `json:"cert_path"`
 			KeyFile  string `json:"key_file"`
-		}
+		} `json:"tls"`
 		AuthKey string `json:"auth_key"`
-		LogFile string `json:"log_file"`
 	} `json:"lens"`
 	MongoDB struct {
 		URL              string `json:"url"`
@@ -175,6 +173,7 @@ type Endpoints struct {
 		LogFile          string `json:"log_file"`
 		KeystorePassword string `json:"keystore_password"`
 	} `json:"krab"`
+	Nexus `json:"nexus,omitempty"`
 }
 
 // Nexus defines options for the Nexus, our private network
