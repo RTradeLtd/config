@@ -1,12 +1,12 @@
 {
 	"api": {
 		"connection": {
-			"Certificates": {
+			"certificates": {
 				"cert_path": "",
 				"key_path": ""
 			},
 			"listen_address": "",
-			"Prometheus": {
+			"prometheus": {
 				"ip": "",
 				"port": ""
 			},
