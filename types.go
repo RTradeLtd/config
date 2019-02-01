@@ -145,15 +145,9 @@ type APIKeys struct {
 // Services are various endpoints we connect to
 type Services struct {
 	MoneroRPC string `json:"monero_rpc"`
-	Lens      struct {
-		URL string `json:"url"`
-		TLS struct {
-			CertPath string `json:"cert_path"`
-			KeyFile  string `json:"key_file"`
-		} `json:"tls"`
-		AuthKey string `json:"auth_key"`
-	} `json:"lens"`
-	MongoDB struct {
+	Lens      `json:"lens"`
+	Nexus     `json:"nexus"`
+	MongoDB   struct {
 		URL              string `json:"url"`
 		DB               string `json:"db"`
 		UploadCollection string `json:"uploads"`
@@ -173,7 +167,16 @@ type Services struct {
 		LogFile          string `json:"log_file"`
 		KeystorePassword string `json:"keystore_password"`
 	} `json:"krab"`
-	Nexus `json:"nexus,omitempty"`
+}
+
+// Lens defines options for the Lens search engine
+type Lens struct {
+	URL string `json:"url"`
+	TLS struct {
+		CertPath string `json:"cert_path"`
+		KeyFile  string `json:"key_file"`
+	} `json:"tls"`
+	AuthKey string `json:"auth_key"`
 }
 
 // Nexus defines options for the Nexus, our private network
