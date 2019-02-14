@@ -157,16 +157,29 @@ type Services struct {
 		User string `json:"user"`
 		Pass string `json:"pass"`
 	} `json:"raven"`
-	Krab struct {
-		URL string `json:"url"`
-		TLS struct {
+	Krab `json:"krab"`
+}
+
+// Krab is used to configure the two instances of our key manager
+type Krab struct {
+	Node1 struct {
+		IP   string `json:"ip"`
+		Port string `json:"port"`
+		TLS  struct {
 			CertPath string `json:"cert_path"`
 			KeyFile  string `json:"key_file"`
-		}
-		AuthKey          string `json:"auth_key"`
-		LogFile          string `json:"log_file"`
-		KeystorePassword string `json:"keystore_password"`
-	} `json:"krab"`
+		} `json:"tls"`
+		AuthKey string `json:"auth_key"`
+	} `json:"node_1"`
+	Node2 struct {
+		IP   string `json:"ip"`
+		Port string `json:"port"`
+		TLS  struct {
+			CertPath string `json:"cert_path"`
+			KeyFile  string `json:"key_file"`
+		} `json:"tls"`
+		AuthKey string `json:"auth_key"`
+	} `json:"node_2"`
 }
 
 // Lens defines options for the Lens search engine
