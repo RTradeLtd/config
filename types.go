@@ -188,7 +188,7 @@ type Lens struct {
 	Options struct {
 		Queue struct {
 			Rate  string `json:"rate"`
-			Batch string `json:"batch"`
+			Batch int `json:"batch"`
 		} `json:"queue"`
 		Engine struct {
 			StorePath string `json:"store_path"`
