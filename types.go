@@ -186,12 +186,12 @@ type Lens struct {
 	} `json:"tls"`
 	AuthKey string `json:"auth_key"`
 	Options struct {
-		Queue struct {
-			Rate  int `json:"rate"`
-			Batch int `json:"batch"`
-		} `json:"queue"`
 		Engine struct {
 			StorePath string `json:"store_path"`
+			Queue     struct {
+				Rate  int `json:"rate"`
+				Batch int `json:"batch"`
+			} `json:"queue"`
 		} `json:"engine"`
 	} `json:"options"`
 }
