@@ -185,6 +185,15 @@ type Lens struct {
 		KeyFile  string `json:"key_file"`
 	} `json:"tls"`
 	AuthKey string `json:"auth_key"`
+	Options struct {
+		Queue struct {
+			Rate  string `json:"rate"`
+			Batch string `json:"batch"`
+		} `json:"queue"`
+		Engine struct {
+			StorePath string `json:"store_path"`
+		} `json:"engine"`
+	} `json:"options"`
 }
 
 // Nexus defines options for the Nexus, our private network
