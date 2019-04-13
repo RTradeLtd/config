@@ -2,6 +2,7 @@ package config
 
 // TemporalConfig defines Temporal configuration fields
 type TemporalConfig struct {
+	V3          `json:"v3"`
 	API         `json:"api,omitempty"`
 	APIKeys     `json:"api_keys,omitempty"`
 	AWS         `json:"aws,omitempty"`
