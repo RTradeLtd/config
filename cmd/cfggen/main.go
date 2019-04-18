@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"github.com/RTradeLtd/config"
+	"github.com/RTradeLtd/config/v2"
 )
 
 func main() {
