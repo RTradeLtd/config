@@ -8,9 +8,10 @@ type V3 struct {
 
 // V3API configures the V3 gRPC API
 type V3API struct {
-	Address string
-	JWT     V3JWT
-	TLS     V3TLS
+	VerifyDomain string
+	Address      string
+	JWT          V3JWT
+	TLS          V3TLS
 }
 
 // V3Gateway configures the V3 API gateway
