@@ -165,7 +165,7 @@ type Services struct {
 		URL      string `json:"url"`
 		CertFile string `json:"cert_file"`
 		KeyFile  string `json:"key_file"`
-	} `json:"bhc_grpc"`
+	} `json:"bch_grpc"`
 	Krab         `json:"krab"`
 	KrabFallback Krab `json:"krab_fallback"`
 }
