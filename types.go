@@ -161,6 +161,11 @@ type Services struct {
 		User string `json:"user"`
 		Pass string `json:"pass"`
 	} `json:"raven"`
+	BchGRPC struct {
+		URL      string `json:"url"`
+		CertFile string `json:"cert_file"`
+		KeyFile  string `json:"key_file"`
+	} `json:"bhc_grpc"`
 	Krab         `json:"krab"`
 	KrabFallback Krab `json:"krab_fallback"`
 }
