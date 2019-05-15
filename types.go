@@ -165,6 +165,13 @@ type Services struct {
 		URL      string `json:"url"`
 		CertFile string `json:"cert_file"`
 		KeyFile  string `json:"key_file"`
+		// Wallet defines connection information
+		// to the bchwallet gRPC service
+		Wallet struct {
+			URL      string `json:"url"`
+			CertFile string `json:"cert_file"`
+			KeyFile  string `json:"key_file"`
+		} `json:"wallet"`
 	} `json:"bch_grpc"`
 	Krab         `json:"krab"`
 	KrabFallback Krab `json:"krab_fallback"`
