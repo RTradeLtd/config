@@ -175,6 +175,7 @@ type Services struct {
 	} `json:"bch_grpc"`
 	Krab         `json:"krab"`
 	KrabFallback Krab `json:"krab_fallback"`
+	RTNS         `json:"rtns"`
 }
 
 // Krab is used to for key management
@@ -231,4 +232,13 @@ type Nexus struct {
 type Stripe struct {
 	PublishableKey string `json:"publishable_key"`
 	SecretKey      string `json:"secret_key"`
+}
+
+// RTNS is used to configure our RTNS publishing service
+type RTNS struct {
+	MultiAddresses []string `json:"multi_addresses,omitempty"`
+	// name of the private key stored within krab
+	KeyName string `json:"pk_name,omitempty"`
+	// path to persistent data store
+	DatastorePath string `json:"datastore_path"`
 }
