@@ -6,13 +6,23 @@ import (
 	"github.com/vrischmann/envconfig"
 	"io/ioutil"
 	"os"
+	"reflect"
 )
 
 // LoadConfig loads a TemporalConfig from given filepath
 func LoadConfig(configPath string) (*TemporalConfig, error) {
 	// if configPath is empty, load from env
 	if configPath == "" {
-		return LoadConfigFromEnv()
+		conf, err := LoadConfigFromEnv()
+		if err != nil {
+			return nil, err
+		}
+		// this will pass if we failed to pull config
+		// from the environment, and will then default
+		// to config file path based loading
+		if !reflect.DeepEqual(&TemporalConfig{}, conf) {
+			return conf, nil
+		}
 	}
 	raw, err := ioutil.ReadFile(configPath)
 	if err != nil {
