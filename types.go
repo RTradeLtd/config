@@ -2,21 +2,21 @@ package config
 
 // TemporalConfig defines Temporal configuration fields
 type TemporalConfig struct {
-	V3          `json:"v3,omitempty"`
-	API         `json:"api,omitempty"`
-	APIKeys     `json:"api_keys,omitempty"`
-	AWS         `json:"aws,omitempty"`
-	Database    `json:"database,omitempty"`
-	Services    `json:"services,omitempty"`
-	Ethereum    `json:"ethereum,omitempty"`
-	IPFSCluster `json:"ipfs_cluster,omitempty"`
-	IPFS        `json:"ipfs,omitempty"`
-	Pay         `json:"pay,omitempty"`
-	RabbitMQ    `json:"rabbitmq,omitempty"`
-	Sendgrid    `json:"sendgrid,omitempty"`
-	Stripe      `json:"stripe,omitempty"`
-	Wallets     `json:"wallets,omitempty"`
-	LogDir      string `json:"log_dir,omitempty"`
+	V3          `json:"v3,omitempty" envconfig:"optional"`
+	API         `json:"api,omitempty" envconfig:"optional"`
+	APIKeys     `json:"api_keys,omitempty" envconfig:"optional"`
+	AWS         `json:"aws,omitempty" envconfig:"optional"`
+	Database    `json:"database,omitempty" envconfig:"optional"`
+	Services    `json:"services,omitempty" envconfig:"optional"`
+	Ethereum    `json:"ethereum,omitempty" envconfig:"optional"`
+	IPFSCluster `json:"ipfs_cluster,omitempty" envconfig:"optional"`
+	IPFS        `json:"ipfs,omitempty" envconfig:"optional"`
+	Pay         `json:"pay,omitempty" envconfig:"optional"`
+	RabbitMQ    `json:"rabbitmq,omitempty" envconfig:"optional"`
+	Sendgrid    `json:"sendgrid,omitempty" envconfig:"optional"`
+	Stripe      `json:"stripe,omitempty" envconfig:"optional"`
+	Wallets     `json:"wallets,omitempty" envconfig:"optional"`
+	LogDir      string `json:"log_dir,omitempty" envconfig:"optional"`
 }
 
 // API configures the Temporal API

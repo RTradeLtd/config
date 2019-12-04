@@ -3,12 +3,17 @@ package config
 import (
 	"bytes"
 	"encoding/json"
+	"github.com/vrischmann/envconfig"
 	"io/ioutil"
 	"os"
 )
 
 // LoadConfig loads a TemporalConfig from given filepath
 func LoadConfig(configPath string) (*TemporalConfig, error) {
+	// if configPath is empty, load from env
+	if configPath == "" {
+		return LoadConfigFromEnv()
+	}
 	raw, err := ioutil.ReadFile(configPath)
 	if err != nil {
 		return nil, err
@@ -22,6 +27,13 @@ func LoadConfig(configPath string) (*TemporalConfig, error) {
 	tCfg.setDefaults()
 
 	return &tCfg, nil
+}
+
+// LoadConfigFromEnv is used to load a TemporalConfig object us env vars
+func LoadConfigFromEnv() (*TemporalConfig, error) {
+	cfg := &TemporalConfig{}
+	err := envconfig.Init(cfg)
+	return cfg, err
 }
 
 // GenerateConfig writes a empty TemporalConfig template to given filepath
