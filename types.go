@@ -143,7 +143,8 @@ type Wallets struct {
 
 // APIKeys are the various API keys we use
 type APIKeys struct {
-	ChainRider string `json:"chain_rider"`
+	ChainRider    string `json:"chain_rider"`
+	CoinMarketCap string `json:"coin_market_cap"`
 }
 
 // Services are various endpoints we connect to
