@@ -129,6 +129,12 @@ type Ethereum struct {
 		RTCAddress             string `json:"rtc_address"`
 		PaymentContractAddress string `json:"payment_contract_address"`
 	} `json:"contracts"`
+	Swarm struct {
+		// two urls are used for high availability
+		// ex: http://127.0.0.1:8500
+		URL1 string `json:"url1"`
+		URL2 string `json:"url2"`
+	} `json:"swarm"`
 }
 
 // Wallets are the addresses of RTrade Ltd's wallets
